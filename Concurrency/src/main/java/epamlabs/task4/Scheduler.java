@@ -8,7 +8,7 @@ package epamlabs.task4;
 public class Scheduler implements Runnable {
     private final Runnable job;
     private Scheduler next;
-    private volatile Boolean wait;
+    private volatile boolean wait;
 
     public Scheduler(Runnable job) {
         this(job, Boolean.TRUE);
@@ -29,8 +29,8 @@ public class Scheduler implements Runnable {
     }
 
     private void passTheTurn() {
-        wait = Boolean.TRUE;
-        next.wait = Boolean.FALSE;
+        wait = true;
+        next.wait = false;
         synchronized (next) {
             next.notify();
         }

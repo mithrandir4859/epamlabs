@@ -11,7 +11,7 @@ public class Demo {
         Scheduler[] schedulers = new Scheduler[THREADS_NUMBER];
         {
             int i = 0;
-            schedulers[i] = new Scheduler(new JobSimulator(i), Boolean.FALSE);
+            schedulers[i] = new Scheduler(new JobSimulator(i), false);
             i++;
             for (; i < THREADS_NUMBER; i++) {
                 schedulers[i] = new Scheduler(new JobSimulator(i));
